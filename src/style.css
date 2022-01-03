@@ -1,0 +1,83 @@
+html {
+    background-color:#131516;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    color: #FFF;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.fa {
+    margin-right: 20px;
+}
+
+
+.fa:hover {
+    transform: scale(1.15) rotate(15deg);
+}
+
+.github:hover ~ .github-desc {
+    opacity: 1;
+}
+
+.linkedin:hover ~ .linkedin-desc {
+    opacity: 1;
+}
+
+.mail:hover ~ .mail-desc {
+    opacity: 1;
+}
+
+.fa-github {
+    color: #6e5494;
+}
+
+.fa-linkedin {
+    color: #0077b5;
+}
+
+.fa-envelope {
+    color: #11862f;
+}
+
+.desc {
+    font-family: monospace;
+    font-size: x-large;
+    margin-right: 20px;
+}
+
+.github-desc {
+    color: #6e5494;
+    margin-left: 6%;
+    position: absolute;
+    opacity: 0;
+}
+
+.linkedin-desc {
+    color: #0077b5;
+    margin-left: 33%;
+    position: absolute;
+    opacity: 0;
+}
+
+.mail-desc {
+    color: #11862f;
+    margin-left: 75%;
+    position: absolute;
+    opacity: 0;
+}
