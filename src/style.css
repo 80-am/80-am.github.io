@@ -1,10 +1,10 @@
 html {
-    background-color:#131516;
+    background-color: #131516;
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Lato', sans-serif;
-    color: #FFF;
+    /* color: #FFF; */
     -webkit-font-smoothing: antialiased;
     display: flex;
     justify-content: center;
@@ -14,70 +14,199 @@ html {
     overflow: hidden;
 }
 
-.container{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+a {
+    text-decoration: none;
+}
+
+.container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .fa {
     margin-right: 20px;
 }
 
-
 .fa:hover {
     transform: scale(1.15) rotate(15deg);
 }
 
-.github:hover ~ .github-desc {
+.github:hover ~ .github-desc,
+.linkedin:hover ~ .linkedin-desc,
+.mail:hover ~ .mail-desc,
+.hexco:hover ~ .hexco-desc {
     opacity: 1;
 }
 
-.linkedin:hover ~ .linkedin-desc {
-    opacity: 1;
-}
-
-.mail:hover ~ .mail-desc {
-    opacity: 1;
-}
-
-.fa-github {
+.fa-github, .github-desc {
     color: #6e5494;
 }
 
-.fa-linkedin {
+.fa-linkedin, .linkedin-desc {
     color: #0077b5;
 }
 
-.fa-envelope {
+.fa-envelope, .mail-desc {
     color: #11862f;
+}
+
+.hexco-desc {
+    color: #f59187;
 }
 
 .desc {
     font-family: monospace;
     font-size: x-large;
-    margin-right: 20px;
+    margin: 0 15px; /* Adjust this to center descriptions */
 }
 
-.github-desc {
-    color: #6e5494;
-    margin-left: 6%;
+.github-desc,
+.linkedin-desc,
+.mail-desc,
+.hexco-desc {
+    padding-top: 0.5em;
     position: absolute;
     opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Adjust margin for descriptions */
+.github-desc {
+    margin-left: 2.8%; /* No margin-left needed */
 }
 
 .linkedin-desc {
-    color: #0077b5;
-    margin-left: 33%;
-    position: absolute;
-    opacity: 0;
+    margin-left: 25%; /* No margin-left needed */
 }
 
 .mail-desc {
-    color: #11862f;
-    margin-left: 75%;
-    position: absolute;
-    opacity: 0;
+    margin-left: 56.7%; /* No margin-left needed */
+}
+
+.hexco-desc {
+    margin-left: 80%; /* No margin-left needed */
+}
+
+/* POPUP for HEXI */
+/* Modal styles */
+.modal {
+    background-color: #131516;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #131516;
+    margin: 10% auto; /* Center the modal */
+    padding: 20px;
+    border: 1px solid #888;
+    /* width: 90%; Width of the modal */
+    max-width: 60%; /* Set a max width for larger screens */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Privacy policy text */
+.privacy-policy {
+    font-family: 'Lato', sans-serif;
+    color: #000; /* Change to black for visibility */
+    line-height: 1.6; /* Increase line height for readability */
+} 
+
+.policy {
+    margin-top: 10em;
+    color:#FFF;
+    text-align: left;
+}
+
+.hexco-description {
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Spacing around the text */
+    margin: 20px; /* Margin around the block */
+    color: #FFF; /* White text color */
+    font-size: 1.2em; /* Increased font size for readability */
+    line-height: 1.5; /* Better line spacing */
+    text-align: center; /* Center align text */
+    animation: fadeIn 0.5s ease-in-out; /* Optional fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Optional media query for responsiveness */
+@media (max-width: 768px) {
+    .hexco-description {
+        padding: 15px; /* Adjust padding on smaller screens */
+        font-size: 1em; /* Slightly smaller text size */
+    }
+}
+
+.app-image { 
+    border-radius: 2em;
+    padding: 10px;
 }
