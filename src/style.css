@@ -15,7 +15,7 @@ html {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .container {
@@ -73,42 +73,6 @@ a {
     transition: opacity 0.3s ease;
 }
 
-/* Modal Styles */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 /* Adjust margin for descriptions */
 .github-desc {
     margin-left: 2.8%; /* No margin-left needed */
@@ -125,52 +89,6 @@ a {
 .hexco-desc {
     margin-left: 80%; /* No margin-left needed */
 }
-
-/* POPUP for HEXI */
-/* Modal styles */
-.modal {
-    background-color: #131516;
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
-}
-
-.modal-content {
-    background-color: #131516;
-    margin: 10% auto; /* Center the modal */
-    padding: 20px;
-    border: 1px solid #888;
-    /* width: 90%; Width of the modal */
-    max-width: 60%; /* Set a max width for larger screens */
-    border-radius: 10px; /* Rounded corners */
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Privacy policy text */
-.privacy-policy {
-    font-family: 'Lato', sans-serif;
-    color: #000; /* Change to black for visibility */
-    line-height: 1.6; /* Increase line height for readability */
-} 
 
 .policy {
     margin-top: 10em;
