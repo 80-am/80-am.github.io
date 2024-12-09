@@ -1,5 +1,5 @@
 html {
-  background-color: #0e1d25;
+  background-color: #000000;
 }
 
 .github {
@@ -297,24 +297,82 @@ li:nth-child(5) {
   top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #84dcc6;
-  font-size: 120px;
+  color: #ffffff;
+  font-size: 90px;
   text-align: center;
-  font-family: 'Road Rage', cursive;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
 /* Add this media query for mobile devices */
 @media screen and (max-width: 768px) {
   .title {
-    font-size: 60px;
-    /* Reduced font size for mobile */
+    font-size: 45px;
   }
 }
 
 /* Add this for even smaller screens if needed */
 @media screen and (max-width: 480px) {
   .title {
-    font-size: 40px;
-    /* Further reduced font size for very small screens */
+    font-size: 30px;
+  }
+}
+
+/* Add these styles for the policy page */
+.policy {
+  color: #ffffff;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.policy h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.policy h3 {
+  font-size: 24px;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  color: #f5cb5c;
+  /* Using the yellow accent color from your design */
+}
+
+.policy p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.policy .contact-email {
+  color: #0ac27f;
+  /* Using the mail color from your design */
+  text-decoration: none;
+}
+
+.policy .contact-email:hover {
+  text-decoration: underline;
+}
+
+/* Add responsive adjustments */
+@media screen and (max-width: 768px) {
+  .policy {
+    padding: 20px 15px;
+  }
+
+  .policy h2 {
+    font-size: 28px;
+  }
+
+  .policy h3 {
+    font-size: 20px;
+  }
+
+  .policy p {
+    font-size: 15px;
   }
 }
