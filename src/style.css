@@ -55,7 +55,7 @@ h1 {
   font-weight: 700;
   letter-spacing: 0.1em;
   margin-bottom: 2rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 4px rgb(0, 0, 0);
 }
 
 .main-text {
@@ -70,7 +70,7 @@ h1 {
   max-width: 500px;
   line-height: 2;
   letter-spacing: 0.02em;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 3px rgb(0, 0, 0);
   margin: 0;
   font-weight: 400;
 }
