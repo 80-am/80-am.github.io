@@ -19,7 +19,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
+}
+
+/* Main page specific styles */
+body:not(.policy-page) {
   overflow: hidden;
+}
+
+/* Policy page specific styles */
+body.policy-page {
+  align-items: flex-start;
+  padding: 2rem 0;
 }
 
 .container {
