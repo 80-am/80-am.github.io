@@ -1,16 +1,15 @@
-/* Reset and base styles */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Base */
 body {
-  background-image: url('../src/pixelz.png');
-  background-repeat: repeat;
-  background-position: center;
+  background: linear-gradient(160deg, #0e0e12 0%, #07070a 55%, #000000 100%);
   color: #ffffff;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Jost', "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.6;
   min-height: 100vh;
   display: flex;
@@ -21,163 +20,106 @@ body {
   position: relative;
 }
 
-/* Main page specific styles */
 body:not(.policy-page) {
   overflow: hidden;
 }
 
-/* Policy page specific styles */
 body.policy-page {
   align-items: flex-start;
   padding: 2rem 0;
 }
 
+/* ===========================
+   MAIN PAGE
+   =========================== */
+
 .container {
   width: 100%;
   max-width: 1200px;
-  min-height: 100vh;
-  padding: 2rem;
+  height: 100vh;
+  padding: 2rem 3rem;
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  align-items: flex-end;
+  align-items: stretch;
 }
 
+/* Left — studio identity */
 .left-content {
-  flex: 0 0 50%;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-bottom: 2rem;
-}
-
-.right-content {
-  flex: 0 0 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-left: 4rem;
-  margin-bottom: 4.5rem;
+  padding-bottom: 2.5rem;
+  gap: 1.75rem;
 }
 
 h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  margin-bottom: 2rem;
-  text-shadow: 0 2px 4px rgb(0, 0, 0);
-}
-
-.main-text {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  font-weight: 500;
-}
-
-.description {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.95);
-  max-width: 500px;
-  line-height: 2;
-  letter-spacing: 0.02em;
-  text-shadow: 0 1px 3px rgb(0, 0, 0);
-  margin: 0;
-  font-weight: 400;
+  font-family: 'Jost', sans-serif;
+  font-size: 4.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 /* Social links */
 .social-links {
   display: flex;
-  gap: 2rem;
-  margin-bottom: 2rem;
+  gap: 1.6rem;
+  align-items: center;
 }
 
 .social-links a {
-  font-size: 1.8rem;
-  color: #ffffff;
-  transition: all 0.3s ease;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.2s ease;
+  text-decoration: none;
 }
 
-/* Social icon hover colors */
-.github:hover {
-  color: #6e5494;
-  opacity: 1;
+.github:hover   { color: #ffffff; }
+.linkedin:hover { color: #0a66c2; }
+.mail:hover     { color: #0ac27f; }
+.instagram:hover{ color: #e1306c; }
+.appstore:hover { color: #0E7AFE; }
+
+.app-icons {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-end;
 }
 
-.linkedin:hover {
-  color: #0a66c2;
-  opacity: 1;
+.app-icon-link {
+  display: block;
+  text-decoration: none;
 }
 
-.mail:hover {
-  color: #0ac27f;
-  opacity: 1;
+.app-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  display: block;
+  animation: float 4s ease-in-out infinite;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.instagram:hover {
-  color: #c13584;
-  opacity: 1;
+.app-icon-link:nth-child(2) .app-icon { animation-delay: 0.6s; }
+.app-icon-link:nth-child(3) .app-icon { animation-delay: 1.2s; }
+
+.app-icon-link:hover .app-icon {
+  animation-play-state: paused;
+  transform: translateY(-6px) scale(1.06);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
 }
 
-.hexco:hover {
-  color: #0E7AFE;
-  opacity: 1;
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .left-content,
-  .right-content {
-    flex: 0 0 100%;
-    padding: 1rem;
-  }
-
-  .left-content {
-    justify-content: flex-start;
-    padding-bottom: 0;
-  }
-
-  .right-content {
-    padding-left: 0;
-    text-align: center;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  .main-text {
-    font-size: 1.4rem;
-  }
-
-  .description {
-    font-size: 1rem;
-    margin: 0 auto;
-  }
-
-  footer {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    margin-top: 2rem;
-    text-align: center;
-  }
-
-  .social-links {
-    gap: 1.8rem;
-  }
-
-  .social-links a {
-    font-size: 1.6rem;
-  }
-}
-
-/* Rain container */
+/* Rain — two layers */
 body::before {
   content: '';
   position: fixed;
@@ -189,14 +131,13 @@ body::before {
     repeating-linear-gradient(180deg,
       transparent 0%,
       transparent 97%,
-      rgba(255, 255, 255, 0.1) 100%);
+      rgba(255, 255, 255, 0.06) 100%);
   background-size: 1px 4px;
   animation: rain 0.25s linear infinite;
   transform: rotate(85deg);
   pointer-events: none;
 }
 
-/* Second layer of rain for depth */
 body::after {
   content: '';
   position: fixed;
@@ -208,56 +149,101 @@ body::after {
     repeating-linear-gradient(180deg,
       transparent 0%,
       transparent 97%,
-      rgba(255, 255, 255, 0.15) 100%);
+      rgba(255, 255, 255, 0.09) 100%);
   background-size: 2px 5px;
   animation: rain 0.3s linear infinite;
   transform: rotate(85deg);
   pointer-events: none;
 }
 
-/* Rain animation */
 @keyframes rain {
-  from {
-    transform: rotate(85deg) translateY(-100%);
+  from { transform: rotate(85deg) translateY(-100%); }
+  to   { transform: rotate(85deg) translateY(0%); }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  body:not(.policy-page) {
+    overflow: auto;
   }
 
-  to {
-    transform: rotate(85deg) translateY(0%);
+  .container {
+    height: auto;
+    min-height: 100svh;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 3rem 2rem;
+    gap: 3rem;
+  }
+
+  .left-content,
+  .right-content {
+    flex: none;
+    width: 100%;
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  h1 {
+    font-size: 3rem;
+    white-space: normal;
+  }
+
+  .app-icons {
+    gap: 1rem;
+  }
+
+  .app-icon {
+    width: 60px;
+    height: 60px;
   }
 }
 
-/* Policy page styles */
+/* ===========================
+   POLICY PAGES
+   =========================== */
+
 .policy-container {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .policy-content {
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
   border-radius: 12px;
   padding: 3rem;
   margin: 2rem auto;
+  border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .policy-content h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   margin-bottom: 0.5rem;
 }
 
 .policy-content h2 {
-  font-size: 1.8rem;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.45);
   margin-bottom: 2rem;
   font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .policy-content h3 {
-  font-size: 1.4rem;
-  color: rgba(255, 255, 255, 0.95);
-  margin: 2rem 0 1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 2rem 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .policy-section {
@@ -265,25 +251,26 @@ body::after {
 }
 
 .policy-section p {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.8;
   margin-bottom: 1rem;
+  font-size: 0.95rem;
 }
 
 .policy-section .date {
-  color: rgba(255, 255, 255, 0.7);
-  font-style: italic;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.82rem;
   margin-bottom: 2rem;
 }
 
 .policy-content a {
   color: #0ac27f;
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
 }
 
 .policy-content a:hover {
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
 .back-link {
@@ -291,29 +278,20 @@ body::after {
   align-items: center;
   gap: 0.5rem;
   margin-top: 2rem;
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
 .back-link:hover {
   color: #0ac27f !important;
 }
 
-/* Policy page responsive adjustments */
 @media screen and (max-width: 768px) {
   .policy-content {
     padding: 2rem;
   }
 
   .policy-content h1 {
-    font-size: 2rem;
-  }
-
-  .policy-content h2 {
-    font-size: 1.5rem;
-  }
-
-  .policy-content h3 {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
 }
