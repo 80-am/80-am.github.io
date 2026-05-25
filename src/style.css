@@ -91,9 +91,88 @@ h1 {
   align-items: flex-end;
 }
 
-.app-icon-link {
-  display: block;
-  text-decoration: none;
+.flip-card {
+  width: 72px;
+  height: 72px;
+  perspective: 900px;
+  cursor: pointer;
+  outline: none;
+  /* expand first, then flip */
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flip-card.flipped {
+  width: 205px;
+  height: 186px;
+}
+
+/* when collapsing: flip first, shrink after */
+.flip-card.collapsing {
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0.22s,
+              height 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0.22s;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  /* flip delayed so card expands first */
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.12s;
+}
+
+.flip-card.collapsing .flip-card-inner {
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background: rgba(0, 0, 0, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  padding: 14px 13px;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.card-bg-icon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(18px) brightness(0.55) saturate(1.4);
+  transform: scale(1.3);
+  z-index: 0;
+  border-radius: 18px;
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 6px;
 }
 
 .app-icon {
@@ -105,13 +184,52 @@ h1 {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.app-icon-link:nth-child(2) .app-icon { animation-delay: 0.6s; }
-.app-icon-link:nth-child(3) .app-icon { animation-delay: 1.2s; }
+.flip-card:nth-child(2) .app-icon { animation-delay: 0.6s; }
+.flip-card:nth-child(3) .app-icon { animation-delay: 1.2s; }
 
-.app-icon-link:hover .app-icon {
+.flip-card:not(.flipped):hover .app-icon {
   animation-play-state: paused;
   transform: translateY(-6px) scale(1.06);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.card-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  width: 100%;
+  margin-bottom: 3px;
+}
+
+.card-desc {
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.5;
+  width: 100%;
+}
+
+.card-tagline {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.42);
+  line-height: 1.4;
+  width: 100%;
+  font-style: italic;
+}
+
+.card-store-link {
+  margin-top: auto;
+  font-size: 0.76rem;
+  color: #0ac27f;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  width: 100%;
+  transition: opacity 0.15s ease;
+}
+
+.card-store-link:hover {
+  opacity: 0.7;
 }
 
 @keyframes float {
@@ -191,6 +309,16 @@ body::after {
 
   .app-icons {
     gap: 1rem;
+  }
+
+  .flip-card {
+    width: 60px;
+    height: 60px;
+  }
+
+  .flip-card.flipped {
+    width: 190px;
+    height: 178px;
   }
 
   .app-icon {

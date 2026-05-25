@@ -16,15 +16,56 @@
   <main class="container">
     <div class="left-content">
       <div class="app-icons">
-        <a class="app-icon-link" href="https://apps.apple.com/se/developer/flonko-studios/id1772851324" title="Feels">
-          <img class="app-icon" src="src/images/feels_app_icon.png" alt="Feels">
-        </a>
-        <a class="app-icon-link" href="https://apps.apple.com/se/developer/flonko-studios/id1772851324" title="Gripurr">
-          <img class="app-icon" src="src/images/gripurr_app_icon.png" alt="Gripurr">
-        </a>
-        <a class="app-icon-link" href="https://apps.apple.com/se/developer/flonko-studios/id1772851324" title="Hexco">
-          <img class="app-icon" src="src/images/hexco_app_icon.png" alt="Hexco">
-        </a>
+        <div class="flip-card" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img class="app-icon" src="src/images/feels_app_icon.png" alt="Feels">
+            </div>
+            <div class="flip-card-back">
+              <img class="card-bg-icon" src="src/images/feels_app_icon.png" alt="">
+              <div class="card-content">
+                <span class="card-title">Feels</span>
+                <p class="card-desc">Eight emotional worlds. Slice through what's in your way.</p>
+                <p class="card-tagline">No ads. No timers. Just the eel and the sea.</p>
+                <a class="card-store-link" href="https://apps.apple.com/se/app/feels-in-sargasso/id6764802248" target="_blank">App Store ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img class="app-icon" src="src/images/gripurr_app_icon.png" alt="Gripurr">
+            </div>
+            <div class="flip-card-back">
+              <img class="card-bg-icon" src="src/images/gripurr_app_icon.png" alt="">
+              <div class="card-content">
+                <span class="card-title">Gripurr</span>
+                <p class="card-desc">Float through tranquil waters. Catch koi. Every fish tips the balance.</p>
+                <p class="card-tagline">Serene on the surface. Chaotic just beneath.</p>
+                <a class="card-store-link" href="https://apps.apple.com/se/app/gripurr/id6736884275" target="_blank">App Store ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" tabindex="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img class="app-icon" src="src/images/hexco_app_icon.png" alt="Hexco">
+            </div>
+            <div class="flip-card-back">
+              <img class="card-bg-icon" src="src/images/hexco_app_icon.png" alt="">
+              <div class="card-content">
+                <span class="card-title">Hexco</span>
+                <p class="card-desc">Capture any color from the world around you — photos or live camera.</p>
+                <p class="card-tagline">Save your palette. Share it anywhere.</p>
+                <a class="card-store-link" href="https://apps.apple.com/se/app/hexco/id6736643557" target="_blank">App Store ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <h1>FLONKO STUDIOS</h1>
       <nav class="social-links">
@@ -46,6 +87,40 @@
       </nav>
     </div>
   </main>
+  <script>
+    function flipClose(card) {
+      card.classList.add('collapsing');
+      card.classList.remove('flipped');
+      setTimeout(() => card.classList.remove('collapsing'), 520);
+    }
+
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.card-store-link')) return;
+        if (card.classList.contains('flipped')) {
+          flipClose(card);
+        } else {
+          card.classList.add('flipped');
+        }
+      });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          if (card.classList.contains('flipped')) {
+            flipClose(card);
+          } else {
+            card.classList.add('flipped');
+          }
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.flip-card')) {
+        document.querySelectorAll('.flip-card.flipped').forEach(c => flipClose(c));
+      }
+    });
+  </script>
 </body>
 
 </html>
