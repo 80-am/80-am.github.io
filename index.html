@@ -811,13 +811,13 @@
         height: min(62svh, 500px);
       }
 
-      .card,
-      .c7 {
+      /* Mobile: one compact list under the nav. Cards reveal one by one and stay,
+         so a quick swipe can't skip past them. */
+      .card {
         left: 50%;
         right: auto;
-        top: 10%;
         bottom: auto;
-        width: min(320px, calc(100vw - 32px));
+        width: min(360px, calc(100vw - 32px));
         transform: translate(-50%, 32px);
       }
 
@@ -825,9 +825,19 @@
         transform: translate(-50%, 0);
       }
 
-      .card.visible:not(.current) {
-        opacity: 0;
-        pointer-events: none;
+      .c4 { top: 68px; }
+      .c5 { top: 128px; }
+      .c6 { top: 188px; }
+      .c7 { top: 248px; }
+
+      .card-head {
+        padding: 8px 10px 8px 8px;
+      }
+
+      .card-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
       }
 
       .ticker {
@@ -1353,7 +1363,6 @@
       if (document.fonts) document.fonts.load(FONT).then(() => { baseLayer = null; resizeCanvas(); });
       requestAnimationFrame(loop);
       const cards = [...document.querySelectorAll('.card')];
-      const mobile = window.matchMedia('(max-width: 820px)');
 
       // Typing terminal prompt in the hero
       const LINES = [
@@ -1445,18 +1454,11 @@
         ticker.classList.toggle('visible', tickerOn);
         if (!tickerOn && activeTick) closePop();
 
-        let current = null;
         cards.forEach((card) => {
           const on = p >= parseFloat(card.dataset.at);
           card.classList.toggle('visible', on);
-          if (on) current = card;
-        });
-        cards.forEach((card) => {
-          const isCurrent = mobile.matches && card === current;
-          card.classList.toggle('current', isCurrent);
-          // Close cards that scroll out of view (or out of the mobile slot)
-          const hidden = !card.classList.contains('visible') || (mobile.matches && !isCurrent);
-          if (hidden && card.classList.contains('open')) setOpen(card, false);
+          // Close cards that scroll out of view
+          if (!on && card.classList.contains('open')) setOpen(card, false);
         });
       }
 
