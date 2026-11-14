@@ -294,6 +294,7 @@
       position: sticky;
       top: 0;
       height: 100svh;
+      height: 100dvh; /* follow the mobile address bar so the ticker stays on the bottom edge */
       overflow: hidden;
       pointer-events: none;
       /* let clicks reach the hero; cards opt back in */
@@ -699,7 +700,7 @@
       display: flex;
       width: max-content;
       height: 100%;
-      animation: marquee 47s linear infinite;
+      animation: marquee 56s linear infinite;
       will-change: transform;
       /* own GPU layer: scrolls on the compositor */
       backface-visibility: hidden;
@@ -833,6 +834,11 @@
         height: 48px;
       }
 
+      /* give the typing prompt its own full-width row so it never wraps back and forth */
+      .prompt {
+        flex: 1 0 100%;
+      }
+
       .ticker-label {
         padding: 0 14px 0 16px;
       }
@@ -877,7 +883,7 @@
       }
 
       .ticker-track {
-        animation-duration: 200s;
+        animation-duration: 240s;
       }
     }
   </style>
@@ -1087,23 +1093,27 @@
             <button class="tick" data-i="0"><img src="src/images/hagbloms_icon.png" alt=""><span class="tick-name">Hagbloms</span></button>
             <button class="tick" data-i="1"><img src="src/images/tv4_icon.png" alt=""><span class="tick-name">TV4</span></button>
             <button class="tick" data-i="2"><img src="src/images/verisure_app_icon.png" alt=""><span class="tick-name">Verisure</span></button>
-            <button class="tick" data-i="3"><img src="src/images/handelsbanken_app_icon.png" alt=""><span class="tick-name">Handelsbanken</span></button>
-            <button class="tick" data-i="4"><img src="src/images/ikano_app_icon.png" alt=""><span class="tick-name">Ikano Bank</span></button>
+            <button class="tick" data-i="3"><img src="src/images/memir_app_icon.svg" alt=""><span class="tick-name">Memir</span></button>
+            <button class="tick" data-i="4"><img src="src/images/handelsbanken_app_icon.png" alt=""><span class="tick-name">Handelsbanken</span></button>
+            <button class="tick" data-i="5"><img src="src/images/ikano_app_icon.png" alt=""><span class="tick-name">Ikano Bank</span></button>
             <button class="tick" aria-hidden="true" tabindex="-1" data-i="0"><img src="src/images/hagbloms_icon.png" alt=""><span class="tick-name">Hagbloms</span></button>
             <button class="tick" aria-hidden="true" tabindex="-1" data-i="1"><img src="src/images/tv4_icon.png" alt=""><span class="tick-name">TV4</span></button>
             <button class="tick" aria-hidden="true" tabindex="-1" data-i="2"><img src="src/images/verisure_app_icon.png" alt=""><span class="tick-name">Verisure</span></button>
-            <button class="tick" aria-hidden="true" tabindex="-1" data-i="3"><img src="src/images/handelsbanken_app_icon.png" alt=""><span class="tick-name">Handelsbanken</span></button>
-            <button class="tick" aria-hidden="true" tabindex="-1" data-i="4"><img src="src/images/ikano_app_icon.png" alt=""><span class="tick-name">Ikano Bank</span></button>
+            <button class="tick" aria-hidden="true" tabindex="-1" data-i="3"><img src="src/images/memir_app_icon.svg" alt=""><span class="tick-name">Memir</span></button>
+            <button class="tick" aria-hidden="true" tabindex="-1" data-i="4"><img src="src/images/handelsbanken_app_icon.png" alt=""><span class="tick-name">Handelsbanken</span></button>
+            <button class="tick" aria-hidden="true" tabindex="-1" data-i="5"><img src="src/images/ikano_app_icon.png" alt=""><span class="tick-name">Ikano Bank</span></button>
             <button class="tick" aria-hidden="true" tabindex="-1" data-i="0"><img src="src/images/hagbloms_icon.png" alt=""><span class="tick-name">Hagbloms</span></button>
             <button class="tick" aria-hidden="true" tabindex="-1" data-i="1"><img src="src/images/tv4_icon.png" alt=""><span class="tick-name">TV4</span></button>
             <button class="tick" aria-hidden="true" tabindex="-1" data-i="2"><img src="src/images/verisure_app_icon.png" alt=""><span class="tick-name">Verisure</span></button>
-            <button class="tick" aria-hidden="true" tabindex="-1" data-i="3"><img src="src/images/handelsbanken_app_icon.png" alt=""><span class="tick-name">Handelsbanken</span></button>
-            <button class="tick" aria-hidden="true" tabindex="-1" data-i="4"><img src="src/images/ikano_app_icon.png" alt=""><span class="tick-name">Ikano Bank</span></button>
+            <button class="tick" aria-hidden="true" tabindex="-1" data-i="3"><img src="src/images/memir_app_icon.svg" alt=""><span class="tick-name">Memir</span></button>
+            <button class="tick" aria-hidden="true" tabindex="-1" data-i="4"><img src="src/images/handelsbanken_app_icon.png" alt=""><span class="tick-name">Handelsbanken</span></button>
+            <button class="tick" aria-hidden="true" tabindex="-1" data-i="5"><img src="src/images/ikano_app_icon.png" alt=""><span class="tick-name">Ikano Bank</span></button>
             <button class="tick" aria-hidden="true" tabindex="-1" data-i="0"><img src="src/images/hagbloms_icon.png" alt=""><span class="tick-name">Hagbloms</span></button>
             <button class="tick" aria-hidden="true" tabindex="-1" data-i="1"><img src="src/images/tv4_icon.png" alt=""><span class="tick-name">TV4</span></button>
             <button class="tick" aria-hidden="true" tabindex="-1" data-i="2"><img src="src/images/verisure_app_icon.png" alt=""><span class="tick-name">Verisure</span></button>
-            <button class="tick" aria-hidden="true" tabindex="-1" data-i="3"><img src="src/images/handelsbanken_app_icon.png" alt=""><span class="tick-name">Handelsbanken</span></button>
-            <button class="tick" aria-hidden="true" tabindex="-1" data-i="4"><img src="src/images/ikano_app_icon.png" alt=""><span class="tick-name">Ikano Bank</span></button>
+            <button class="tick" aria-hidden="true" tabindex="-1" data-i="3"><img src="src/images/memir_app_icon.svg" alt=""><span class="tick-name">Memir</span></button>
+            <button class="tick" aria-hidden="true" tabindex="-1" data-i="4"><img src="src/images/handelsbanken_app_icon.png" alt=""><span class="tick-name">Handelsbanken</span></button>
+            <button class="tick" aria-hidden="true" tabindex="-1" data-i="5"><img src="src/images/ikano_app_icon.png" alt=""><span class="tick-name">Ikano Bank</span></button>
           </div>
         </div>
       </div>
@@ -1451,7 +1461,7 @@
       }
 
       // ----- Company ticker -----
-      const COMPANIES = [{"tint": "30, 79, 158", "name": "Hagbloms", "desc": "Took a traditional painting company digital: e-invoicing for the office and digital time reporting for the painters out on the job."}, {"tint": "220, 0, 30", "name": "TV4", "desc": "Joined TV4 for the 2012 US presidential election, supporting their coverage all the way through election."}, {"tint": "255, 0, 51", "name": "Verisure", "desc": "Full-stack work across web, mobile and backend for the alarm and security platform, including internal tooling."}, {"tint": "0, 102, 178", "name": "Handelsbanken", "desc": "Built and maintained microservices powering the Android and iOS mobile banking apps. Part of the architecture guild and a security champion."}, {"tint": "237, 28, 36", "name": "Ikano Bank", "desc": "Builds and maintains IAM infrastructure, including SCIM provisioning and authentication. Helped migrate the bank to a new card provider, building the anti-corruption layer between the two."}];
+      const COMPANIES = [{"tint": "30, 79, 158", "name": "Hagbloms", "desc": "Took a traditional painting company digital, introducing e-invoicing and moving the painters’ time reporting online."}, {"tint": "220, 0, 30", "name": "TV4", "desc": "Supported the coverage of the 2012 US presidential election, all the way through to the results."}, {"tint": "255, 0, 51", "name": "Verisure", "desc": "Built full-stack solutions across web, mobile and backend for the alarm and security platform, including internal tooling."}, {"tint": "200, 200, 210", "name": "Memir", "desc": "Builds AI-driven tools, from problem framing to high-fidelity implementation."}, {"tint": "0, 102, 178", "name": "Handelsbanken", "desc": "Built and maintained microservices powering the Android and iOS mobile banking apps. Also sat in the architecture guild and served as a security champion."}, {"tint": "237, 28, 36", "name": "Ikano Bank", "desc": "Builds and maintains IAM infrastructure, including SCIM provisioning and authentication. Helped migrate the bank to a new card provider, building the anti-corruption layer between the two."}];
       const ticker = document.querySelector('.ticker');
       const pop = document.querySelector('.tick-pop');
       const stageEl = document.querySelector('.stage');
